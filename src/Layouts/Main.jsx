@@ -65,5 +65,5 @@ const Main = ({ children }) => {
 
 export default Main;
 Main.propTypes = {
-    children: PropTypes.node,
-  };
+  children: PropTypes.node,
+};

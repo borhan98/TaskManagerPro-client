@@ -3,6 +3,8 @@ import Home from "../Pages/Home/Home";
 import Root from "../Root";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import Dashboard from "../Dashboard/Dashboard";
+import AllTasks from "../Dashboard/DashboardPages/AllTasks/AllTasks";
 
 
 export const router = createBrowserRouter([
@@ -13,6 +15,16 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
+            }
+        ]
+    },
+    {
+        path: "dashboard",
+        element: <Dashboard />,
+        children: [
+            {
+                index: true,
+                element: <AllTasks />
             }
         ]
     },

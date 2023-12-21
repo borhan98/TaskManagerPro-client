@@ -1,9 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Pages/Home/Navbar";
 import PropTypes from "prop-types";
 import mainLogo from "../assets/TaskManagerPro.png";
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Main = ({ children }) => {
+  const { user, logoutUser } = useAuth();
+  const navigate = useNavigate();
+
+  // handle logout user
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        toast.success("You have logged out", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -37,12 +60,45 @@ const Main = ({ children }) => {
                 <img className="h-14" src={mainLogo} alt="Logo" />
               </Link>
             </div>
-            <div className="flex-none hidden lg:block">
+            <div className="flex-1 hidden lg:block">
               <ul className="menu menu-horizontal">
                 {/* Navbar menu content here */}
                 <Navbar />
               </ul>
             </div>
+            {!user ? (
+              <Link to={"/login"} className="border border-[#E96A04] py-2 px-3 rounded-md text-zinc-700">Sign In</Link>
+            ) : (
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full border border-[#E96A04] hover:border-none ">
+                    <img
+                      alt="Profile Picture"
+                      src={
+                        user
+                          ? user.photoURL
+                          : "https://i.ibb.co/JCVpNzQ/user.jpg"
+                      }
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to={"/dashboard"}>Dashboard</Link>
+                  </li>
+                  <li>
+                    <a onClick={handleLogout}>Logout</a>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
         {/* Page content here */}

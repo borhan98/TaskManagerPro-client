@@ -1,21 +1,39 @@
 import { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import SocialLogin from "../Components/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const navigate = useNavigate();
+  const { loginUser } = useAuth();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data.email, data.password)
-  }
+    // handle login user
+    loginUser(data.email, data.password)
+      .then(() => {
+        toast.success("Logged in successful", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+        navigate("/dashboard");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
   return (
     <div className="py-10 min-h-screen w-full bg-gradient-to-b from-[#E96A04] via-[#592801] to-[#121212] ">
@@ -33,11 +51,17 @@ const Login = () => {
             <label htmlFor="email" className="text-zinc-200">
               Your email
             </label>
-            <input {...register("email", {required: true})}
+            <input
+              {...register("email", { required: true })}
               type="email"
+              placeholder="Enter your email"
               className="py-2 md:py-3 px-2 md:px-4 rounded-md focus:outline-none "
             />
-            {errors.email && <span className="text-red-500 text-sm">Your email is required!</span>}
+            {errors.email && (
+              <span className="text-red-500 text-sm">
+                Your email is required!
+              </span>
+            )}
           </div>
           {/* Password */}
           <div className="flex gap-1 flex-col">
@@ -45,11 +69,17 @@ const Login = () => {
               Password
             </label>
             <div className="relative">
-              <input {...register("password", {required: true, minLength: 6})}
+              <input
+                {...register("password", { required: true, minLength: 6 })}
                 type={showPass ? "text" : "password"}
+                placeholder="Enter your password"
                 className="py-2 md:py-3 px-2 md:px-4 rounded-md focus:outline-none w-full "
               />
-              {errors.password && <span className="text-red-500 text-sm">Password should have at least 6 character!</span>}
+              {errors.password && (
+                <span className="text-red-500 text-sm">
+                  Password should have at least 6 character!
+                </span>
+              )}
               <span
                 className="absolute top-3 right-2 text-2xl"
                 onClick={() => setShowPass(!showPass)}
@@ -75,20 +105,26 @@ const Login = () => {
             </div>
           </div>
           {/* Sign In */}
-          <button type="submit" className="py-2 md:py-3 px-2 md:px-4 rounded-md capitalize border w-full text-zinc-200 font-medium hover:tracking-wider duration-300">
+          <button
+            type="submit"
+            className="py-2 md:py-3 px-2 md:px-4 rounded-md capitalize border w-full text-zinc-200 font-medium hover:tracking-wider duration-300"
+          >
             Sign in
           </button>
           {/* Social login */}
           <div className="flex items-center gap-4 mb-10">
             <div className="h-[1px] w-full bg-base-200"></div>
-            <h3 className=" text-center font-medium text-zinc-200">
-              OR
-            </h3>
+            <h3 className=" text-center font-medium text-zinc-200">OR</h3>
             <div className="h-[1px] w-full bg-base-200"></div>
           </div>
           <SocialLogin />
         </form>
-        <p className="mt-16 text-center text-zinc-200">Don&#39;t have account? <Link to={"/register"} className="text-[#E96A04]">Sing Up</Link></p>
+        <p className="mt-16 text-center text-zinc-200">
+          Don&#39;t have account?{" "}
+          <Link to={"/register"} className="text-[#E96A04]">
+            Sing Up
+          </Link>
+        </p>
       </div>
     </div>
   );

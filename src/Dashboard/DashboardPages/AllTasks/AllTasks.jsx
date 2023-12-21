@@ -30,7 +30,7 @@ const AllTasks = () => {
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {todos.map((task) => (
-          <Task key={task._id} task={task} />
+          <Task key={task._id} task={task} refetch={refetch} />
         ))}
         <div
           onClick={() => document.getElementById("my_modal_3").showModal()}
@@ -49,7 +49,9 @@ const AllTasks = () => {
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {onGoings.length > 0 ? (
-          onGoings.map((task) => <Task key={task._id} task={task} />)
+          onGoings.map((task) => (
+            <Task key={task._id} task={task} refetch={refetch} />
+          ))
         ) : (
           <div
             onClick={() => document.getElementById("my_modal_3").showModal()}
@@ -69,7 +71,9 @@ const AllTasks = () => {
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {completes.length > 0 ? (
-          completes.map((task) => <Task key={task._id} task={task} />)
+          completes.map((task) => (
+            <Task key={task._id} task={task} refetch={refetch} />
+          ))
         ) : (
           <div
             onClick={() => document.getElementById("my_modal_3").showModal()}

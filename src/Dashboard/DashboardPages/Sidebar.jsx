@@ -43,25 +43,25 @@ const Sidebar = () => {
       {/* Menus */}
       <ul className="menu md:menu-md rounded-box">
         <li>
-          <NavLink className={activeRoute} to={"/dashboard"}>
+          <NavLink className={activeRoute} to={"dashboard"}>
             <GoTasklist className="text-xl" />{" "}
             <span className="ml-2">All Tasks</span>
           </NavLink>
         </li>
         <li>
-          <NavLink className={activeRoute} to={"/dashboard/Todo"}>
+          <NavLink className={activeRoute} to={"/dashboard/todos"}>
             <RiCalendarTodoLine className="text-xl" />{" "}
             <span className="ml-2">ToDo</span>
           </NavLink>
         </li>
         <li>
-          <NavLink className={activeRoute} to={"/dashboard/onGoing"}>
+          <NavLink className={activeRoute} to={"/dashboard/ongoing"}>
             <AiOutlineLoading3Quarters className="text-xl" />{" "}
             <span className="ml-2">On Going</span>
           </NavLink>
         </li>
         <li>
-          <NavLink className={activeRoute} to={"/dashboard/Completed"}>
+          <NavLink className={activeRoute} to={"/dashboard/completed"}>
             <MdDone className="text-xl" />{" "}
             <span className="ml-2">Completed</span>
           </NavLink>

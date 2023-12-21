@@ -12,7 +12,6 @@ const AllTasks = () => {
   return (
     <div className="my-10 mx-4">
       {/* Add New Task Modal */}
-      {/* You can open the modal using document.getElementById('ID').showModal() method */}
       <dialog id="my_modal_3" className="modal">
         <AddTask refetch={refetch} />
       </dialog>

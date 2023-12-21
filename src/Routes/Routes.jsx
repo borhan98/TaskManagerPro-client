@@ -5,6 +5,9 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Dashboard from "../Dashboard/Dashboard";
 import AllTasks from "../Dashboard/DashboardPages/AllTasks/AllTasks";
+import Todos from "../Dashboard/DashboardPages/Todos/Todos";
+import Ongoing from "../Dashboard/DashboardPages/Ongoing/Ongoing";
+import Completeds from "../Dashboard/DashboardPages/Completed/Completeds";
 
 
 export const router = createBrowserRouter([
@@ -23,9 +26,21 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
         children: [
             {
-                index: true,
+                path: "dashboard",
                 element: <AllTasks />
-            }
+            },
+            {
+                path: "/dashboard/todos",
+                element: <Todos />
+            },
+            {
+                path: "/dashboard/ongoing",
+                element: <Ongoing />
+            },
+            {
+                path: "/dashboard/completed",
+                element: <Completeds />
+            },
         ]
     },
     {

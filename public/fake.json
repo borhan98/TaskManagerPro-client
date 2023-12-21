@@ -1,7 +1,7 @@
 [
   {
-    "user_name": "John Doe",
-    "user_email": "john.doe@email.com",
+    "user_name": "Emma Watson",
+    "user_email": "emma@watson.com",
     "task_title": "Complete Project Proposal",
     "task_description": "Draft a detailed project proposal for the upcoming client meeting.",
     "deadline": "2023-02-15",
@@ -9,8 +9,8 @@
     "list": "to-do"
   },
   {
-    "user_name": "Alice Smith",
-    "user_email": "alice.smith@email.com",
+    "user_name": "Emma Watson",
+    "user_email": "emma@watson.com",
     "task_title": "Review Marketing Campaign",
     "task_description": "Evaluate the effectiveness of the latest marketing campaign and suggest improvements.",
     "deadline": "2023-02-28",

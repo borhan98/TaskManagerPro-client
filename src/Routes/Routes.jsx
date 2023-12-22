@@ -8,47 +8,51 @@ import AllTasks from "../Dashboard/DashboardPages/AllTasks/AllTasks";
 import Todos from "../Dashboard/DashboardPages/Todos/Todos";
 import Ongoing from "../Dashboard/DashboardPages/Ongoing/Ongoing";
 import Completeds from "../Dashboard/DashboardPages/Completed/Completeds";
-
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Root />,
-        children: [
-            {
-                index: true,
-                element: <Home />
-            }
-        ]
-    },
-    {
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
         path: "dashboard",
-        element: <Dashboard />,
-        children: [
-            {
-                path: "dashboard",
-                element: <AllTasks />
-            },
-            {
-                path: "/dashboard/todos",
-                element: <Todos />
-            },
-            {
-                path: "/dashboard/ongoing",
-                element: <Ongoing />
-            },
-            {
-                path: "/dashboard/completed",
-                element: <Completeds />
-            },
-        ]
-    },
-    {
-        path: "/login",
-        element: <Login />
-    },
-    {
-        path: "/register",
-        element: <Register />
-    },
-])
+        element: <AllTasks />,
+      },
+      {
+        path: "/dashboard/todos",
+        element: <Todos />,
+      },
+      {
+        path: "/dashboard/ongoing",
+        element: <Ongoing />,
+      },
+      {
+        path: "/dashboard/completed",
+        element: <Completeds />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+]);

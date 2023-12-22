@@ -10,7 +10,7 @@ const AllTasks = () => {
   const onGoings = tasks.filter((task) => task.list === "ongoing");
   const completes = tasks.filter((task) => task.list === "completed");
   return (
-    <div className="my-10 mx-4">
+    <div className="my-10 mx-1 md:mx-4">
       {/* Add New Task Modal */}
       <dialog id="my_modal_3" className="modal">
         <AddTask refetch={refetch} />

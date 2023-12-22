@@ -58,7 +58,7 @@ const Main = ({ children }) => {
             </div>
             <div className="flex-1">
               <Link to={"/"}>
-                <img className="h-14" src={mainLogo} alt="Logo" />
+                <img className="h-6 md:h-10 lg:h-14" src={mainLogo} alt="Logo" />
               </Link>
             </div>
             <div className="flex-1 hidden lg:block">
@@ -68,7 +68,7 @@ const Main = ({ children }) => {
               </ul>
             </div>
             {!user ? (
-              <Link to={"/login"} className="border border-[#E96A04] py-2 px-3 rounded-md text-zinc-700">Sign In</Link>
+              <Link to={"/login"} className="border border-[#E96A04] py-1 md:py-2 px-1 md:px-3 rounded-md text-zinc-700">Sign In</Link>
             ) : (
               <div className="dropdown dropdown-end">
                 <div

@@ -7,22 +7,22 @@ const Footer = () => {
     return (
       <div className="bg-neutral">
         <footer className="container mx-auto px-2 lg:px-0 grid gap-6 md:grid-cols-3 footer p-10 text-neutral-content">
-          {/* Website logo and contact information */}
+          {/* Website logo */}
           <div>
             {/* logo*/}
             <Link>
               <div className="flex items-center mb-6">
-                <img className="h-14" src={Logo} alt="Logo" />
+                <img className="h-6 md:h-10 lg:h-14" src={Logo} alt="Logo" />
               </div>
             </Link>
             <div className="flex items-center gap-4  text-lg">
-              <span className="p-3 text-xl rounded-full bg-[#49525e] cursor-pointer ">
+              <span className="p-1 md:p-3 text-xl rounded-full bg-[#49525e] cursor-pointer ">
                 <FaFacebook />
               </span>
-              <span className="p-3 text-xl rounded-full bg-[#49525e] cursor-pointer ">
+              <span className="p-1 md:p-3 text-xl rounded-full bg-[#49525e] cursor-pointer ">
                 <FaInstagram />
               </span>
-              <span className="p-3 text-xl rounded-full bg-[#49525e] cursor-pointer ">
+              <span className="p-1 md:p-3 text-xl rounded-full bg-[#49525e] cursor-pointer ">
                 <FaYoutube />
               </span>
             </div>
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
         </footer>
         <div className="py-6 bg-[#27272A] ">
-          <p className="text-center text-zinc-300 "><small>@{new Date().getFullYear()} UniFood. All rights reserved</small></p>
+          <p className="text-center text-zinc-300 "><small>@{new Date().getFullYear()} TaskManagerPro. All rights reserved</small></p>
         </div>
       </div>
     );

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import mainLogo from "../assets/TaskManagerPro.png";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import Footer from "../Pages/Footer";
 
 const Main = ({ children }) => {
   const { user, logoutUser } = useAuth();
@@ -103,6 +104,7 @@ const Main = ({ children }) => {
         </div>
         {/* Page content here */}
         {children}
+        <Footer />
       </div>
       <div className="drawer-side">
         <label

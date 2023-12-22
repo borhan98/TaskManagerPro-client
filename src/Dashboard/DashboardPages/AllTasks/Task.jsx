@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Task = ({ task, refetch }) => {
   const { _id, task_title, task_description, deadline, priority } = task;
@@ -44,8 +45,10 @@ const Task = ({ task, refetch }) => {
 
   return (
     <div className="bg-base-200 rounded-md p-4 flex flex-col border border-base-200 ">
-      <h4 className="text-xl font-semibold text-zinc-700 grow">{task_title}</h4>
-      <p className="my-4 grow">{task_description}</p>
+      <h4 className="text-base md:text-xl font-semibold text-zinc-700 grow">
+        {task_title}
+      </h4>
+      <p className="my-4 grow text-sm lg:text-base">{task_description}</p>
       <p className="flex items-center gap-2 grow">
         <MdOutlineDateRange /> <span className="mt-1">{deadline}</span>
       </p>
@@ -54,9 +57,11 @@ const Task = ({ task, refetch }) => {
           <FcHighPriority /> <span className="mt-1">{priority}</span>
         </p>
         <p className="flex gap-2 text-xl items-start pt-1 ">
-          <button className="border border-[#E96A04] p-2 rounded-md text-[#E96A04] ">
-            <MdEdit />
-          </button>
+          <Link to={`/dashboard/editTasks/${_id}`}>
+            <button className="border border-[#E96A04] p-2 rounded-md text-[#E96A04] ">
+              <MdEdit />
+            </button>
+          </Link>
           <button
             onClick={() => handleDeleteTast(_id)}
             className="border border-[#E96A04] p-2 rounded-md text-[#E96A04] "

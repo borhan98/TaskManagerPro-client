@@ -9,6 +9,7 @@ import Todos from "../Dashboard/DashboardPages/Todos/Todos";
 import Ongoing from "../Dashboard/DashboardPages/Ongoing/Ongoing";
 import Completeds from "../Dashboard/DashboardPages/Completed/Completeds";
 import PrivateRoute from "./PrivateRoute";
+import EditTask from "../Dashboard/DashboardPages/AllTasks/EditTask";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,11 @@ export const router = createBrowserRouter([
         path: "/dashboard/completed",
         element: <Completeds />,
       },
+      {
+        path: "/dashboard/editTasks/:id",
+        element: <EditTask />,
+        loader: ({params}) => fetch(`https://task-manager-pro-server.vercel.app/tasks/${params.id}`)
+      }
     ],
   },
   {

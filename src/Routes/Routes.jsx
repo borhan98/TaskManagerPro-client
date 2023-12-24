@@ -10,6 +10,8 @@ import Ongoing from "../Dashboard/DashboardPages/Ongoing/Ongoing";
 import Completeds from "../Dashboard/DashboardPages/Completed/Completeds";
 import PrivateRoute from "./PrivateRoute";
 import EditTask from "../Dashboard/DashboardPages/AllTasks/EditTask";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import Features from "../Pages/Features/Features";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />
+      },
+      {
+        path: "/features",
+        element: <Features />
       },
     ],
   },

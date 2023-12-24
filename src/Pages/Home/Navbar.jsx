@@ -13,6 +13,12 @@ const Navbar = () => {
       <NavLink className={activeRoute} to={"/"}>
         Home
       </NavLink>
+      <NavLink className={activeRoute} to={"/about"}>
+        About Us
+      </NavLink>
+      <NavLink className={activeRoute} to={"/features"}>
+        Features
+      </NavLink>
       {user && (
         <NavLink className={activeRoute} to={"/dashboard"}>
           Dashboard

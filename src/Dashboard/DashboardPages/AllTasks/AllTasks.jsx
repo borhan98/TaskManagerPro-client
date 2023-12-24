@@ -52,10 +52,7 @@ const AllTasks = () => {
             <Task key={task._id} task={task} refetch={refetch} />
           ))
         ) : (
-          <div
-            onClick={() => document.getElementById("my_modal_3").showModal()}
-            className="w-full h-full min-h-64 border border-[#E96A04] rounded-md flex justify-center items-center"
-          >
+          <div className="w-full h-full min-h-64 border border-[#E96A04] rounded-md flex justify-center items-center">
             <button>
               <span className="p-1 inline-block rounded-full text-zinc-600 text-2xl ">
                 Empty
@@ -74,10 +71,7 @@ const AllTasks = () => {
             <Task key={task._id} task={task} refetch={refetch} />
           ))
         ) : (
-          <div
-            onClick={() => document.getElementById("my_modal_3").showModal()}
-            className="w-full h-full min-h-64 border border-[#E96A04] rounded-md flex justify-center items-center"
-          >
+          <div className="w-full h-full min-h-64 border border-[#E96A04] rounded-md flex justify-center items-center">
             <button>
               <span className="p-1 inline-block rounded-full text-zinc-600 text-2xl ">
                 Empty
